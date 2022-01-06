@@ -1,0 +1,21 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: user-server
+          uri: lb://userserver
+          predicates:
+          - Path=/user/** #断言
+          filters: #路由过滤器 对请求进行各种操作
+        - id: order-server
+          uri: lb://orderserver
+          predicates:
+            - Path=/order/** #断言
+      default-filters: # 默认路由过滤器 对所有请求进行各种操作
