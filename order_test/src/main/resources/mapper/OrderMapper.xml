@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyu.order.mapper.OrderMapper">
+    <select id="allorder" resultType="com.xyu.order.domain.order">
+        select * from tb_order
+    </select>
+    <select id="oneorder" resultType="com.xyu.order.domain.order">
+        select * from tb_order where id=#{orderid}
+    </select>
+</mapper>
